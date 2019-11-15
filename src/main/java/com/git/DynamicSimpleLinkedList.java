@@ -8,13 +8,14 @@ public class DynamicSimpleLinkedList {
 
         long time = new Date().getTime() - 86400000l;
 
-        System.out.println("dateTo " + time);
+
         long days =  (86400000l * 1);
         long x = time - days;
 
         long l = (time - x) / 86400000l;
         System.out.println(l + " days");
         System.out.println("dateFrom " + x);
+        System.out.println("dateTo " + time);
 
     }
 }
