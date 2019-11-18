@@ -2,6 +2,7 @@ package com.git;
 
 import java.time.OffsetDateTime;
 import java.util.Date;
+import java.util.NoSuchElementException;
 
 public class DynamicSimpleLinkedList {
     public static void main(String[] args) {
@@ -9,7 +10,7 @@ public class DynamicSimpleLinkedList {
         long time = new Date().getTime() - 86400000l;
 
 
-        long days =  (86400000l * 1);
+        long days =  (86400000l * 365);
         long x = time - days;
 
         long l = (time - x) / 86400000l;
@@ -18,4 +19,5 @@ public class DynamicSimpleLinkedList {
         System.out.println("dateTo " + time);
 
     }
+
 }
