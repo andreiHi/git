@@ -1,5 +1,9 @@
 package com.git;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
+
 public enum GeoConst {
     SANKT_PETERBURG("Санкт-Петербург", 0.009, 0.0177);
 

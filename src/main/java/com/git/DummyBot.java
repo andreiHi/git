@@ -1,9 +1,9 @@
 package com.git;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class DummyBot {
     private Map<User, List<Accaunt>> bank = new HashMap<User, List<Accaunt>>();
@@ -16,43 +16,45 @@ public class DummyBot {
 //                .map(e -> bank.get(e.getKey()))
 //                .map()
 //    }
-    public static String[] compress(String[] array) {
-        for (int index = 0; index < array.length; index++) {
-            if (array[index] == null) {
-                int n=index;
-                while (array[n]==null) {
-                    if (n==array.length-1){
-                        break;
-                    }
-                    n++;
-                }
-                array[index]=array[n];
-                array[n]=null;
-
-            }
-
-        }
-        return array;
-    }
-
     public static void main(String[] args) {
-        String[] input = {"I", null, "wanna", null, "be", null, "compressed"};
-        String[] compressed = compress(input);
-        System.out.println();
-        for (int index = 0; index < compressed.length; index++) {
-            System.out.print(compressed[index] + " ");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Игра 11 спичек. Выигрывает тот, кто заберет последние спички. выберите от 1 до 3 спичек");
+        System.out.println("Введите число от 1 до 3");
+        int quantity = 11;
+        boolean gamer = false;
+        while (quantity > 0) {
+
+            //устанавливаем очередь, с которой ходят игроки
+            if (gamer) {
+                System.out.println("Ходит игрок номер 1");
+            } else {
+                System.out.println("Ходит игрок номер 2");
+            }
+            //игроки вытаскивают по 1-3 спички
+            int select = Integer.parseInt(input.nextLine());
+            if (select > 0 && select < 4) {
+                quantity = quantity - select;
+                System.out.println("осталось" + quantity + "спичек");
+                gamer = !gamer;
+            } else {
+                System.out.println("Введите верное количество от 1 до 3");
+            }
+        }
+        if (gamer) {
+            System.out.println("Победил игрок номер 1");
+        } else {
+            System.out.println("Победил игрок номер 2");
         }
     }
-    public boolean check(int num){
-        boolean res = true;
-        for (int i = 2;i < num;i++){
-            if (num % i == 0) {
-                res = false;
-                break;
-            }
+
+    public static int calc(int n) {
+        int res = 1;
+        for (int i = 1; i <= n; i++) {
+            res = res * i;
         }
         return res;
     }
+
 }
 
 

@@ -1,23 +1,46 @@
 package com.git;
 
-import java.time.OffsetDateTime;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class DynamicSimpleLinkedList {
-    public static void main(String[] args) {
+    public static boolean isWin(char[][] board) {
+        boolean result = false;
+        for (int i = 0; i < board.length; i++) {
+            int rw = 0;//подсчёт в рядах символа 'X'
+            int cw = 0;//подсчёт в колонках символа 'Х'
+            if (board[i][i] == 'X') {
+                for (int j = 0; j < board.length; j++) {
+                    if (board[i][j] == 'X') {
+                        rw++;
+                    }
+                    if (board[j][i] == 'X') {
+                        cw++;
+                    }
+                }
+                if (rw == board.length || cw == board.length) {
+                    result = true;
+                }
 
-        long time = new Date().getTime() - 86400000l;
-
-
-        long days =  (86400000l * 365);
-        long x = time - days;
-
-        long l = (time - x) / 86400000l;
-        System.out.println(l + " days");
-        System.out.println("dateFrom " + x);
-        System.out.println("dateTo " + time);
+                break;
+            }
+        }
+        return result;
+    }
+    static class Calculator
+    {
+        int num = 100;
+        public void calc(int num) {
+            this.num = num * 10;
+        }
+        public void printNum()     { System.out.println(num); }
 
     }
-
+    public static void main(String[] args)
+    {
+        Calculator obj = new Calculator();
+        obj.calc(2);
+        obj.printNum();
+    }
 }
