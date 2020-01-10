@@ -54,6 +54,7 @@ public class User {
                 newList.add(two);
             }
         }
+        System.out.println();
         return newList;
     }
 }
