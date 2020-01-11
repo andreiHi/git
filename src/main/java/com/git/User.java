@@ -56,6 +56,8 @@ public class User {
         }
         System.out.println();
         System.out.println();
+        System.out.println();
+        System.out.println();
         return newList;
     }
 }
