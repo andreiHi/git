@@ -3,7 +3,7 @@ package com.git;
 import java.util.ArrayList;
 import java.util.List;
 
-public class User {
+public class User  {
     private String passport;
 
     public String getPassport() {
@@ -40,12 +40,10 @@ public class User {
     }
 
     public static void main(String[] args) {
-        String[] input = {"I", null, "wanna", null, "be", null, "compressed"};
-        String[] compressed = compress(input);
-        System.out.println();
-        for (int index = 0; index < compressed.length; index++) {
-            System.out.print(compressed[index] + " ");
-        }
+       String a = "abc";
+       String b = "abc";
+        System.out.println(a == b);
+        System.out.println(a.equals(b));
     }
     public List<Integer> convert (List<int[]> list){
         List<Integer> newList= new ArrayList<>();
@@ -54,6 +52,8 @@ public class User {
                 newList.add(two);
             }
         }
+        System.out.println();
+        System.out.println();
         System.out.println();
         System.out.println();
         System.out.println();
