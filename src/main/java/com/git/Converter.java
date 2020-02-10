@@ -9,31 +9,43 @@ public class Converter {
     Iterator<Integer> convert(Iterator<Iterator<Integer>> it) {
         return new Iterator<Integer>() {
 
-            private Iterator<Integer> inIter = it.next();
 
-            public boolean hasNext() {
-                while (!inIter.hasNext()) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    inIter = it.next();
+            private Iterator<Integer> insideIterator = it.next();
+
+            private void skipEmpty() {
+                while (condition()) {
+                    insideIterator = it.next();
                 }
-                return inIter.hasNext();
+            }
+
+            private boolean condition() {
+                return !insideIterator.hasNext();
+            }
+
+            @Override
+            public boolean hasNext() {
+                insideIterator = (condition() && it.hasNext())
+                        ? it.next() : insideIterator;
+                return insideIterator.hasNext();
             }
 
             @Override
             public Integer next() {
                 if (!hasNext()) {
                     throw new NoSuchElementException();
-
                 }
-                return inIter.next();
+                return insideIterator.next();
             }
         };
     }
 
     public static void main(String[] args) {
-        System.out.println("a".compareTo("b"));
+        int [] arr = new int[10];
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+            char sex = 'man';
+        }
+
     }
 
 }
